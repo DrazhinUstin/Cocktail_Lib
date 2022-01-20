@@ -1,0 +1,40 @@
+.drinks-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    margin: 4rem 0;
+    article {
+        position: relative;
+        transition: $ease-trans-2;
+        img {
+            width: 100%;
+            border: 0.5rem solid $white;
+            border-radius: $radius;
+            box-shadow: $shadow;
+            transition: inherit;
+        }
+        h3 {
+            position: absolute;
+            bottom: -1rem;
+            right: -1rem;
+            padding: 1rem;
+            border-radius: $radius;
+            background-color: $black;
+            color: $white;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            transition: inherit;
+        }
+    }
+    a:hover {
+        article {
+            transform: scale(1.01);
+            img {
+                filter: grayscale(100%) blur(0.1rem);
+            }
+            h3 {
+                background-color: $red;
+            }
+        }
+    }
+}

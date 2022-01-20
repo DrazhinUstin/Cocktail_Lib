@@ -1,0 +1,15 @@
+$black: #191919;
+$white: rgb(255, 255, 255);
+$grey: #9b9b9b;
+$red: #e24b4b;
+$radius: 0.25rem;
+$spacing: 0.1rem;
+$shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+$ease-trans: all 0.4s ease;
+$ease-trans-2: all 0.6s ease;
+
+%flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

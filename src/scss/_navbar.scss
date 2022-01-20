@@ -1,0 +1,26 @@
+.navbar-wrapper {
+    background-color: $black;
+    color: $white;
+    box-shadow: $shadow;
+}
+
+.navbar {
+    height: 5rem;
+    @extend %flex-between;
+    &-logo {
+        letter-spacing: $spacing;
+    }
+    &-menu {
+        display: flex;
+        column-gap: 2rem;
+        a {
+            color: $white;
+            text-transform: uppercase;
+            letter-spacing: $spacing;
+            transition: $ease-trans;
+            &:hover {
+                color: $red;
+            }
+        }
+    }
+}
