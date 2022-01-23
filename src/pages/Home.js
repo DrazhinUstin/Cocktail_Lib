@@ -4,12 +4,10 @@ import Drinks from '../components/Drinks';
 
 const Home = () => {
     return (
-        <>
-            <section className='section-center'>
-                <SearchForm />
-                <Drinks />
-            </section>
-        </>
+        <section className='section-center section'>
+            <SearchForm />
+            <Drinks />
+        </section>
     );
 };
 

@@ -7,7 +7,7 @@ const AppProvider = ({ children }) => {
     const [name, setName] = useState('');
     const [drinks, setDrinks] = useState([]);
 
-    const fetchData = async () => {
+    const getDrinks = async () => {
         const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
         setLoading(true);
         try {
@@ -16,36 +16,8 @@ const AppProvider = ({ children }) => {
             const { drinks } = data;
             if (drinks) {
                 const newDrinks = drinks.map((drink) => {
-                    const {
-                        idDrink: id,
-                        strDrink: name,
-                        strAlcoholic: alcoholic,
-                        strCategory: category,
-                        strDrinkThumb: image,
-                        strGlass: glass,
-                        strIngredient1,
-                        strIngredient2,
-                        strIngredient3,
-                        strIngredient4,
-                        strIngredient5,
-                        strInstructions: instructions,
-                    } = drink;
-                    return {
-                        id,
-                        name,
-                        alcoholic,
-                        category,
-                        image,
-                        glass,
-                        ingredients: [
-                            strIngredient1,
-                            strIngredient2,
-                            strIngredient3,
-                            strIngredient4,
-                            strIngredient5,
-                        ],
-                        instructions,
-                    };
+                    const { idDrink: id, strDrink: name, strDrinkThumb: image } = drink;
+                    return { id, name, image };
                 });
                 setDrinks(newDrinks);
             } else {
@@ -58,7 +30,7 @@ const AppProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        fetchData();
+        getDrinks();
     }, [name]);
 
     return (

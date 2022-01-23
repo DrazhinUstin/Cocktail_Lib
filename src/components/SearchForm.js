@@ -11,6 +11,7 @@ const SearchForm = () => {
                     type='text'
                     id='name'
                     placeholder='Enter the name of the cocktail'
+                    autoComplete='off'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />

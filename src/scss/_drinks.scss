@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2rem;
-    margin: 4rem 0;
     article {
         position: relative;
         transition: $ease-trans-2;

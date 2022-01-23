@@ -6,31 +6,21 @@ const Drinks = () => {
     const { loading, drinks } = useGlobalContext();
 
     if (loading) {
-        return (
-            <div className='section-title'>
-                <h2>loading...</h2>
-            </div>
-        );
+        return <h2 className='section-title'>loading...</h2>;
     }
 
     if (!drinks.length) {
-        return (
-            <div className='section-title'>
-                <p>There are no cocktails matching your search...</p>
-            </div>
-        );
+        return <p className='alert-message'>There are no cocktails matching your search...</p>;
     }
 
     return (
         <>
-            <div className='section-title'>
-                <h2>Cocktails</h2>
-            </div>
+            <h2 className='section-title'>Cocktails</h2>
             <ul className='drinks-container'>
                 {drinks.map((drink) => {
                     const { id, name, image } = drink;
                     return (
-                        <Link to={'.'} key={id}>
+                        <Link to={`cocktail/${id}`} key={id}>
                             <article>
                                 <img src={image} alt={name} />
                                 <h3>{name}</h3>
