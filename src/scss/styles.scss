@@ -79,8 +79,27 @@ input {
 }
 
 .alert-message {
-    text-align: center;
     color: $red;
+    text-align: center;
     font-weight: 500;
     letter-spacing: $spacing;
+}
+
+.loading {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 4rem auto 0;
+    border: 0.5rem solid $black;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear 0s infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

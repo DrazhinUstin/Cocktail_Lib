@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 
 const Drinks = () => {
-    const { loading, drinks } = useGlobalContext();
+    const { isLoading, drinks } = useGlobalContext();
 
-    if (loading) {
-        return <h2 className='section-title'>loading...</h2>;
+    if (isLoading) {
+        return <div className='loading'></div>;
     }
 
     if (!drinks.length) {
