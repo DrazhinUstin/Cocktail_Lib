@@ -4,6 +4,7 @@
 @import 'search-form';
 @import 'drinks';
 @import 'single-drink';
+@import 'ingredients';
 
 * {
     margin: 0;
@@ -36,6 +37,7 @@ li {
 }
 
 a {
+    color: inherit;
     text-decoration: none;
 }
 

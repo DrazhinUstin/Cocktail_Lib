@@ -1,0 +1,39 @@
+.ingredients {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    grid-gap: 0.5rem;
+    & > * {
+        text-align: center;
+        img {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 0.5rem;
+            transition: $ease-trans;
+        }
+        p {
+            line-height: 1.25;
+            transition: $ease-trans;
+        }
+        &:hover {
+            img {
+                transform: rotate(45deg);
+            }
+            p {
+                color: $red;
+            }
+        }
+    }
+}
+
+.single-ingredient {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 2rem;
+    img {
+        width: 350px;
+        height: 350px;
+    }
+    & ~ * {
+        margin-top: 4rem;
+    }
+}

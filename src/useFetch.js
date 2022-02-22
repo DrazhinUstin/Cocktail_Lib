@@ -3,10 +3,11 @@ import { destructDrinksData } from './utils';
 const API_ENDPOINT = 'https://www.thecocktaildb.com/api/json/v1/1/';
 
 const useFetch = (urlParams) => {
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [drinks, setDrinks] = useState([]);
+    const [ingredients, setIngredients] = useState([]);
 
-    const getDrinks = async (url) => {
+    const getData = async (url) => {
         setIsLoading(true);
         try {
             const response = await fetch(url);
@@ -14,6 +15,8 @@ const useFetch = (urlParams) => {
             if (data.drinks) {
                 const newDrinks = destructDrinksData(data.drinks);
                 setDrinks(newDrinks);
+            } else if (data.ingredients) {
+                setIngredients(data.ingredients);
             } else {
                 setDrinks([]);
             }
@@ -24,10 +27,10 @@ const useFetch = (urlParams) => {
     };
 
     useEffect(() => {
-        getDrinks(`${API_ENDPOINT}${urlParams}`);
+        getData(`${API_ENDPOINT}${urlParams}`);
     }, [urlParams]);
 
-    return { isLoading, drinks };
+    return { isLoading, drinks, ingredients, getData };
 };
 
 export default useFetch;

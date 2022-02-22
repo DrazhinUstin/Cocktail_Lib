@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useGlobalContext } from '../context';
 
-const Drinks = () => {
-    const { isLoading, drinks } = useGlobalContext();
-
+const Drinks = ({ isLoading, drinks }) => {
     if (isLoading) {
         return <div className='loading'></div>;
     }
@@ -16,11 +13,11 @@ const Drinks = () => {
     return (
         <>
             <h2 className='section-title'>Cocktails</h2>
-            <ul className='drinks-container'>
+            <ul className='drinks'>
                 {drinks.map((drink) => {
                     const { id, name, image } = drink;
                     return (
-                        <Link to={`cocktail/${id}`} key={id}>
+                        <Link to={`/cocktail/${id}`} key={id}>
                             <article>
                                 <img src={image} alt={name} />
                                 <h3>{name}</h3>
