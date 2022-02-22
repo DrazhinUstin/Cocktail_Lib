@@ -8,6 +8,13 @@ $spacing: 0.1rem;
 $shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 $ease-trans: all 0.4s ease;
 $ease-trans-2: all 0.6s ease;
+$ease-in-out-trans: all 0.25s ease-in-out;
+
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 %flex-between {
     display: flex;

@@ -1,23 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { getElementHeight } from '../utils';
+import logo from '../assets/logo.svg';
 
 const Navbar = () => {
+    const [isNavbarMenuOpen, setIsNavbarMenuOpen] = useState(false);
+    const navbarMenuRef = useRef(null);
+
+    useEffect(() => {
+        const navbarMenu = navbarMenuRef.current;
+        if (isNavbarMenuOpen) {
+            navbarMenu.style.height = `${getElementHeight(navbarMenu)}px`;
+        } else {
+            navbarMenu.style.height = '';
+        }
+    }, [isNavbarMenuOpen]);
+
+    const handleClick = (e) => {
+        if (!e.target.closest('a')) return;
+        setIsNavbarMenuOpen(false);
+    };
+
     return (
-        <nav className='navbar-wrapper'>
-            <div className='navbar section-center'>
-                <div className='navbar-logo'>
-                    <h1>cocktails lib</h1>
-                </div>
-                <ul className='navbar-menu'>
-                    <li>
-                        <Link to={'.'}>home</Link>
-                    </li>
-                    <li>
-                        <Link to={'about'}>about</Link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <div className='navbar-wrapper'>
+            <section className='navbar section-center' onClick={handleClick}>
+                <header className='navbar-header'>
+                    <Link to={'.'} className='navbar-logo'>
+                        <img src={logo} alt='logo' />
+                        <h1>cocktail lib</h1>
+                    </Link>
+                    <button
+                        className={`navbar-toggle-btn ${isNavbarMenuOpen && 'active'}`}
+                        onClick={() => setIsNavbarMenuOpen((oldState) => !oldState)}
+                    >
+                        <div></div>
+                    </button>
+                </header>
+                <nav className='navbar-menu' ref={navbarMenuRef}>
+                    <Link to={'.'}>home</Link>
+                    <Link to={'about'}>about</Link>
+                    <a
+                        href='https://github.com/DrazhinUstin/Cocktail_Lib'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >
+                        github
+                    </a>
+                </nav>
+            </section>
+        </div>
     );
 };
 

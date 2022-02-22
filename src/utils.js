@@ -43,4 +43,12 @@ const destructDrinksData = (drinks) => {
     });
 };
 
-export { destructDrinksData };
+const getElementHeight = (elem) => {
+    let totalHeight = 0;
+    [...elem.children].forEach((child) => {
+        totalHeight += child.offsetHeight;
+    });
+    return totalHeight;
+};
+
+export { destructDrinksData, getElementHeight };

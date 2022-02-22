@@ -5,21 +5,112 @@
 }
 
 .navbar {
-    height: 5rem;
     @extend %flex-between;
+    &-header {
+        height: 5rem;
+        @extend %flex-between;
+    }
     &-logo {
-        letter-spacing: $spacing;
+        @extend %flex-center;
+        img {
+            width: 3rem;
+        }
+        h1 {
+            font-family: 'Courgette', cursive;
+            font-size: 1.5rem;
+            transition: $ease-trans;
+        }
+        &:hover {
+            color: $red;
+        }
     }
     &-menu {
         display: flex;
         column-gap: 2rem;
+        transition: $ease-in-out-trans;
         a {
-            color: $white;
+            display: block;
             text-transform: uppercase;
             letter-spacing: $spacing;
             transition: $ease-trans;
+            transition-property: color;
             &:hover {
                 color: $red;
+            }
+        }
+    }
+    &-toggle-btn {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .navbar-menu {
+        height: auto !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .navbar {
+        display: block;
+        &.section-center {
+            width: 100%;
+        }
+        &-header {
+            padding: 0 5%;
+        }
+        &-menu {
+            height: 0;
+            overflow: hidden;
+            display: block;
+            background-color: $black;
+            a {
+                padding: 1rem 5%;
+                border-top: 1px solid rgba(255, 255, 255, 0.25);
+            }
+        }
+        &-toggle-btn {
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+            border: none;
+            background-color: inherit;
+            div {
+                position: relative;
+                width: 100%;
+                height: 3px;
+                background-color: $white;
+                transition: $ease-in-out-trans;
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    width: 1.5rem;
+                    height: inherit;
+                    background-color: inherit;
+                    transition: inherit;
+                }
+                &::before {
+                    top: 8px;
+                }
+                &::after {
+                    top: -8px;
+                }
+            }
+            &.active {
+                div {
+                    width: 0;
+                    &::before {
+                        top: 0;
+                        transform: rotate(45deg);
+                    }
+                    &::after {
+                        top: 0;
+                        transform: rotate(-45deg);
+                    }
+                }
             }
         }
     }
