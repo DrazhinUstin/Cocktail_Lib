@@ -38,7 +38,7 @@ const Navbar = () => {
                 </header>
                 <nav className='navbar-menu' ref={navbarMenuRef}>
                     <Link to={'.'}>home</Link>
-                    <Link to={'about'}>about</Link>
+                    <Link to={'faq'}>faq</Link>
                     <a
                         href='https://github.com/DrazhinUstin/Cocktail_Lib'
                         target='_blank'

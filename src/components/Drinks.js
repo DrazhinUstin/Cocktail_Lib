@@ -13,7 +13,7 @@ const Drinks = ({ isLoading, drinks }) => {
     return (
         <>
             <h2 className='section-title'>Cocktails</h2>
-            <ul className='drinks'>
+            <div className='drinks'>
                 {drinks.map((drink) => {
                     const { id, name, image } = drink;
                     return (
@@ -25,7 +25,7 @@ const Drinks = ({ isLoading, drinks }) => {
                         </Link>
                     );
                 })}
-            </ul>
+            </div>
         </>
     );
 };

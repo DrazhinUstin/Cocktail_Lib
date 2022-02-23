@@ -5,12 +5,18 @@
 @import 'drinks';
 @import 'single-drink';
 @import 'ingredients';
+@import 'accordion';
+@import 'scroll-top-btn';
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -41,7 +47,8 @@ a {
     text-decoration: none;
 }
 
-img {
+img,
+svg {
     display: block;
 }
 

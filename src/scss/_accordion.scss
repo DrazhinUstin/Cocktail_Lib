@@ -1,0 +1,67 @@
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: $black;
+    box-shadow: $shadow;
+    &-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        line-height: 1.5;
+        &:last-child {
+            border-bottom: none;
+        }
+        &-header {
+            @extend %flex-between;
+            padding: 0.75rem 1rem;
+            color: $white;
+            cursor: pointer;
+            div {
+                position: relative;
+                width: 1rem;
+                height: 2px;
+                background-color: $white;
+                transition: $ease-in-out-trans;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: inherit;
+                    height: inherit;
+                    background-color: inherit;
+                    transform: rotate(90deg);
+                    transition: inherit;
+                }
+            }
+        }
+        & > div:last-child {
+            height: 0;
+            overflow: hidden;
+            background-color: $off-white;
+            transition: $ease-in-out-trans;
+        }
+        &-content {
+            padding: 1rem;
+            p:not(:last-child),
+            li:not(:last-child) {
+                margin-bottom: 0.5rem;
+            }
+            ul {
+                padding-left: 1rem;
+                li {
+                    list-style-type: disc;
+                    list-style-position: inside;
+                }
+            }
+            span {
+                color: $red;
+                font-weight: 700;
+            }
+        }
+        &.active {
+            .accordion-item-header {
+                div,
+                div::after {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}

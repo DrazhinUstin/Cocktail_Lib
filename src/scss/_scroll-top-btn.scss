@@ -1,0 +1,31 @@
+.scroll-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: none;
+    border: none;
+    border-radius: 50%;
+    background-color: $black;
+    color: $white;
+    font-size: 1.25rem;
+    transition: $ease-trans;
+    animation: up-down 1s linear 0s infinite alternate;
+    &.show {
+        @extend %flex-center;
+    }
+    &:hover {
+        background-color: $red;
+        box-shadow: $shadow;
+    }
+}
+
+@keyframes up-down {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-0.5rem);
+    }
+}
