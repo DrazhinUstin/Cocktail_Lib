@@ -4,9 +4,12 @@
     grid-gap: 2rem;
     article {
         position: relative;
-        transition: $ease-trans-2;
+        transition: $ease-trans;
+        transition-duration: 0.6s;
         img {
             width: 100%;
+            height: 20rem;
+            object-fit: cover;
             border: 0.5rem solid $white;
             border-radius: $radius;
             box-shadow: $shadow;
@@ -21,8 +24,14 @@
             background-color: $black;
             color: $white;
             font-size: 1.5rem;
+            line-height: 1.25;
             text-transform: uppercase;
             transition: inherit;
+            transition-property: background-color;
+            @include for-size(medium) {
+                bottom: -0.5rem;
+                right: -0.5rem;
+            }
         }
     }
     a:hover {

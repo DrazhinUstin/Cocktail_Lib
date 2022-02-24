@@ -29,9 +29,21 @@
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: 2rem;
+    @include for-size(medium) {
+        grid-template-columns: unset;
+        img {
+            margin: 0 auto;
+        }
+    }
     img {
         width: 350px;
         height: 350px;
+        @include for-size(small) {
+            max-width: 350px;
+            max-height: 350px;
+            width: 100%;
+            height: auto;
+        }
     }
     & ~ * {
         margin-top: 4rem;

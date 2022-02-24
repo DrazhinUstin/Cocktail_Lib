@@ -6,11 +6,14 @@
     background-color: $grey;
     color: $white;
     box-shadow: $shadow;
+    @include for-size(small) {
+        padding: 2rem 1rem;
+    }
     &-field {
         label {
-            display: block;
             margin-bottom: 1rem;
             font-weight: 700;
+            line-height: 1.25;
             text-transform: capitalize;
             letter-spacing: $spacing;
         }
@@ -22,6 +25,7 @@
             border-radius: $radius;
             &:focus {
                 outline: none;
+                box-shadow: $border-shadow;
             }
             &::placeholder {
                 color: $grey;

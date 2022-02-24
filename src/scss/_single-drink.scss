@@ -3,6 +3,9 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
     margin-bottom: 4rem;
+    @include for-size(medium) {
+        grid-template-columns: unset;
+    }
     &-image {
         width: 100%;
         border: 0.5rem solid $white;

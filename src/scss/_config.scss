@@ -3,11 +3,12 @@ $white: #ffffff;
 $off-white: #f1f6fb;
 $grey: #9b9b9b;
 $red: #e24b4b;
+$blue: #246cca;
 $radius: 0.25rem;
 $spacing: 0.1rem;
 $shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+$border-shadow: 0 0 0 2px $blue;
 $ease-trans: all 0.4s ease;
-$ease-trans-2: all 0.6s ease;
 $ease-in-out-trans: all 0.25s ease-in-out;
 
 %flex-center {
@@ -21,4 +22,16 @@ $ease-in-out-trans: all 0.25s ease-in-out;
     justify-content: space-between;
     align-items: center;
     column-gap: 0.5rem;
+}
+
+@mixin for-size($size) {
+    @if ($size == medium) {
+        @media screen and (max-width: 767px) {
+            @content;
+        }
+    } @else if ($size == small) {
+        @media screen and (max-width: 500px) {
+            @content;
+        }
+    }
 }
